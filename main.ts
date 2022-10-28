@@ -1,3 +1,19 @@
+function right () {
+    pins.servoSetPulse(AnalogPin.P13, 1300)
+    pins.servoSetPulse(AnalogPin.P8, 1300)
+    control.waitMicros(20000)
+    pins.servoSetPulse(AnalogPin.P8, 1700)
+    pins.servoSetPulse(AnalogPin.P13, 1700)
+    control.waitMicros(20000)
+}
+function left () {
+    pins.servoSetPulse(AnalogPin.P13, 1700)
+    pins.servoSetPulse(AnalogPin.P8, 1700)
+    control.waitMicros(20000)
+    pins.servoSetPulse(AnalogPin.P8, 1300)
+    pins.servoSetPulse(AnalogPin.P13, 1300)
+    control.waitMicros(20000)
+}
 function sencor () {
     pins.digitalWritePin(DigitalPin.P1, 0)
     control.waitMicros(2)
