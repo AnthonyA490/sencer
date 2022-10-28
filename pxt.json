@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "robotbit": "github:kittenbot/pxt-robotbit#v0.4.3"
+        "robotbit": "github:kittenbot/pxt-robotbit#v0.4.3",
+        "pxt-robit": "github:tinkertanker/pxt-robit#v2.0.11"
     },
     "files": [
         "main.blocks",
