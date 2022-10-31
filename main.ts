@@ -44,6 +44,7 @@ function forward () {
     pins.servoSetPulse(AnalogPin.P13, 1700)
     control.waitMicros(20000)
 }
+let group = 0
 let distance = 0
 basic.showIcon(IconNames.Angry)
 distance = 0
@@ -52,4 +53,5 @@ basic.forever(function () {
         sencor()
     }
     basic.showNumber(distance)
+    group = 10
 })
