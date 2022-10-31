@@ -29,11 +29,6 @@ function sencor () {
     control.waitMicros(10)
     pins.digitalWritePin(DigitalPin.P1, 0)
     distance = pins.pulseIn(DigitalPin.P2, PulseValue.High) / 58
-    if (distance <= 5) {
-        left()
-    } else {
-        forward()
-    }
 }
 input.onButtonPressed(Button.AB, function () {
     pins.servoSetPulse(AnalogPin.P13, 0)
@@ -53,4 +48,9 @@ distance = 0
 basic.forever(function () {
     sencor()
     basic.showNumber(distance)
+    if (distance <= 10) {
+        right()
+    } else {
+        forward()
+    }
 })
