@@ -36,7 +36,8 @@ function sencor () {
     }
 }
 input.onButtonPressed(Button.AB, function () {
-	
+    pins.servoSetPulse(AnalogPin.P13, 0)
+    pins.servoSetPulse(AnalogPin.P8, 0)
 })
 input.onButtonPressed(Button.B, function () {
     backword()
