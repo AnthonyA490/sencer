@@ -1,6 +1,4 @@
 function right () {
-    pins.servoSetPulse(AnalogPin.P13, 1300)
-    pins.servoSetPulse(AnalogPin.P8, 1300)
     control.waitMicros(20000)
     pins.servoSetPulse(AnalogPin.P8, 1700)
     pins.servoSetPulse(AnalogPin.P13, 1700)
@@ -8,12 +6,10 @@ function right () {
 }
 function backword () {
     pins.servoSetPulse(AnalogPin.P8, 1700)
-    pins.servoSetPulse(AnalogPin.P13, 1100)
+    pins.servoSetPulse(AnalogPin.P13, 1300)
     control.waitMicros(20000)
 }
 function left () {
-    pins.servoSetPulse(AnalogPin.P13, 1700)
-    pins.servoSetPulse(AnalogPin.P8, 1700)
     control.waitMicros(20000)
     pins.servoSetPulse(AnalogPin.P8, 1300)
     pins.servoSetPulse(AnalogPin.P13, 1300)
@@ -29,6 +25,11 @@ function sencor () {
     control.waitMicros(10)
     pins.digitalWritePin(DigitalPin.P1, 0)
     distance = pins.pulseIn(DigitalPin.P2, PulseValue.High) / 58
+    if (distance <= 10) {
+        left()
+    } else {
+        forward()
+    }
 }
 input.onButtonPressed(Button.AB, function () {
     pins.servoSetPulse(AnalogPin.P13, 0)
@@ -48,9 +49,4 @@ distance = 0
 basic.forever(function () {
     sencor()
     basic.showNumber(distance)
-    if (distance <= 10) {
-        right()
-    } else {
-        forward()
-    }
 })
