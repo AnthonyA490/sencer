@@ -16,7 +16,7 @@ function left () {
     control.waitMicros(20000)
 }
 input.onButtonPressed(Button.A, function () {
-    radio.sendString("go")
+    forward()
 })
 function sencor () {
     let index = 0
@@ -37,10 +37,7 @@ input.onButtonPressed(Button.AB, function () {
     pins.servoSetPulse(AnalogPin.P8, 0)
 })
 input.onButtonPressed(Button.B, function () {
-	
-})
-radio.onReceivedValue(function (name, value) {
-    forward()
+    backword()
 })
 function forward () {
     pins.servoSetPulse(AnalogPin.P8, 1300)
