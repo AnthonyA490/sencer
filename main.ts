@@ -19,16 +19,18 @@ input.onButtonPressed(Button.A, function () {
     forward()
 })
 function sencor () {
-    let index = 0
     pins.digitalWritePin(DigitalPin.P1, 0)
     control.waitMicros(2)
     pins.digitalWritePin(DigitalPin.P1, 1)
     control.waitMicros(10)
     pins.digitalWritePin(DigitalPin.P1, 0)
     distance = pins.pulseIn(DigitalPin.P2, PulseValue.High) / 58
-    if (distance <= 10 && index < 10) {
+    if (distance <= 2.5) {
+        pins.servoSetPulse(AnalogPin.P13, 0)
+        pins.servoSetPulse(AnalogPin.P8, 0)
+        basic.pause(500)
         left()
-    } else {
+        basic.pause(2500)
         forward()
     }
 }
@@ -49,7 +51,7 @@ let distance = 0
 basic.showIcon(IconNames.Angry)
 distance = 0
 basic.forever(function () {
-    for (let index = 0; index <= 4; index++) {
+    for (let index = 0; index <= 3; index++) {
         sencor()
     }
     group = 10
